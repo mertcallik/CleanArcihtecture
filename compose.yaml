@@ -1,0 +1,43 @@
+﻿services:
+  cleanarchitecture.application:
+    image: cleanarchitecture.application
+    build:
+      context: .
+      dockerfile: CleanArchitecture.Application/Dockerfile
+
+  cleanarchitecture.domain:
+    image: cleanarchitecture.domain
+    build:
+      context: .
+      dockerfile: CleanArchitecture.Domain/Dockerfile
+
+  cleanarchitecture.ınfrastructure:
+    image: cleanarchitecture.ınfrastructure
+    build:
+      context: .
+      dockerfile: CleanArchitecture.Infrastructure/Dockerfile
+
+  cleanarchitecture.persistance:
+    image: cleanarchitecture.persistance
+    build:
+      context: .
+      dockerfile: CleanArchitecture.Persistance/Dockerfile
+
+  cleanarchitecture.presentation:
+    image: cleanarchitecture.presentation
+    build:
+      context: .
+      dockerfile: CleanArchitecture.Presentation/Dockerfile
+
+  cleanarchitecture.unittest:
+    image: cleanarchitecture.unittest
+    build:
+      context: .
+      dockerfile: CleanArchitecture.UnitTest/Dockerfile
+
+  cleanarchitecture.webapi:
+    image: cleanarchitecture.webapi
+    build:
+      context: .
+      dockerfile: CleanArchitecture.WebApi/Dockerfile
+
