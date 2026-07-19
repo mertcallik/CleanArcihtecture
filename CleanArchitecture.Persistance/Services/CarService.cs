@@ -1,0 +1,29 @@
+using CleanArchitecture.Application.Features.CarFeatures.Commands;
+using CleanArchitecture.Application.Services;
+using CleanArchitecture.Domain.Entities;
+using CleanArchitecture.Persistance.Context;
+
+namespace CleanArchitecture.Persistance.Services;
+
+public class CarService:ICarService
+{
+    private AppDbContext _context;
+
+    public CarService(AppDbContext context)
+    {
+        _context = context;
+    }
+    public async Task CreateAsync(CreateCarCommand request, CancellationToken cancellationToken)
+    {
+        Car car = new Car
+        {
+            Name = request.Name,
+            Model = request.Model,
+            EnginePower = request.HorsePower
+        };
+        await _context.Set<Car>().AddAsync(car, cancellationToken);
+        await _context.SaveChangesAsync(cancellationToken);
+        
+
+    }
+}
