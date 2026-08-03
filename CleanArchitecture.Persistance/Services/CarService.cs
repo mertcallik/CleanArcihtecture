@@ -19,7 +19,7 @@ public class CarService:ICarService
         {
             Name = request.Name,
             Model = request.Model,
-            EnginePower = request.HorsePower
+            EnginePower = request.EnginePower
         };
         await _context.Set<Car>().AddAsync(car, cancellationToken);
         await _context.SaveChangesAsync(cancellationToken);
