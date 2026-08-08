@@ -1,6 +1,7 @@
-using MediatR;
 using CleanArchitecture.Domain.Dtos;
-namespace CleanArchitecture.Application.Features.CarFeatures.Commands;
+using MediatR;
+
+namespace CleanArchitecture.Application.Features.CarFeatures.Commands.CreateCar;
 
 public sealed record CreateCarCommand(string Model,string Name, int EnginePower):IRequest<MessageResponse>
 {

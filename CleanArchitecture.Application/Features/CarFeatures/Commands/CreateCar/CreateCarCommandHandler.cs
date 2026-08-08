@@ -1,10 +1,11 @@
 using CleanArchitecture.Application.Services;
 using CleanArchitecture.Domain.Dtos;
 using MediatR;
+using MediatR.Pipeline;
 
-namespace CleanArchitecture.Application.Features.CarFeatures.Commands;
+namespace CleanArchitecture.Application.Features.CarFeatures.Commands.CreateCar;
 
-public sealed class CreateCarCommandHandler : IRequestHandler<CreateCarCommand, MessageResponse>
+public class CreateCarCommandHandler:IRequestHandler<CreateCarCommand,MessageResponse>
 {
     private readonly ICarService _carService;
 
@@ -12,10 +13,10 @@ public sealed class CreateCarCommandHandler : IRequestHandler<CreateCarCommand, 
     {
         _carService = carService;
     }
+
     public async Task<MessageResponse> Handle(CreateCarCommand request, CancellationToken cancellationToken)
     {
-        await _carService.CreateAsync(request, cancellationToken);
-        return new MessageResponse("Car Created Successfully");
+       await _carService.CreateAsync(request, cancellationToken);
+       return new MessageResponse("Bravo");
     }
-
-}   
+}

@@ -10,11 +10,11 @@ var builder = WebApplication.CreateBuilder(args);
 builder.Services.AddDbContext<AppDbContext>(opt =>
     opt.UseNpgsql(builder.Configuration.GetSection("ConnectionStrings:Postgres").Value));
 builder.Services.AddControllers().AddApplicationPart(typeof(CleanArchitecture.Presentation.AssemblyReference).Assembly);
+builder.Services.AddScoped<ICarService, CarService>();
 // Learn more about configuring OpenAPI at https://aka.ms/aspnet/openapi
 builder.Services.AddOpenApi();
 builder.Services.AddMediatR(opt => opt.RegisterServicesFromAssemblies(typeof(CleanArchitecture.Application.AssemblyReference).Assembly,typeof(CleanArchitecture.Presentation.AssemblyReference).Assembly));
 
-builder.Services.AddScoped<ICarService,CarService>();
 var app = builder.Build();
 
 // Configure the HTTP request pipeline.

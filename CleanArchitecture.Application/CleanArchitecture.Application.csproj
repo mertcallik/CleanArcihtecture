@@ -12,10 +12,10 @@
     </ItemGroup>
 
     <ItemGroup>
-      <Folder Include="Features\CarFeatures\Queries\" />
+        <ProjectReference Include="..\CleanArchitecture.Domain\CleanArchitecture.Domain.csproj"/>
     </ItemGroup>
 
     <ItemGroup>
-        <ProjectReference Include="..\CleanArchitecture.Domain\CleanArchitecture.Domain.csproj"/>
+      <Folder Include="Features\CarFeatures\Queries\" />
     </ItemGroup>
 </Project>
